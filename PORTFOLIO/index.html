@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This is Ameh Boniface</title>
+    <link rel="stylesheet" href="index.css" />
+    <script
+      src="https://kit.fontawesome.com/e9824178f2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <a href="#" class="logo">AM<span>E</span>H</a>
+          <ul id="sidemenu">
+            <li><a href="#header">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <i class="fa-solid fa-circle-xmark" onclick="closeMenu()"></i>
+          </ul>
+          <i class="fa-solid fa-bars" onclick="openMenu()"></i>
+        </nav>
+        <div class="header-text">
+          <p>Software Engineering Student</p>
+          <h1>
+            Hi, I am <span style="color: slateblue">Ameh</span><br />
+            Boniface from Nigeria
+          </h1>
+        </div>
+      </div>
+    </header>
+    <!--about-->
+    <div id="about">
+      <div class="container">
+        <div class="row">
+          <div class="about-col-1">
+            <img src="images/profile.png" width="350px" height="450px" />
+          </div>
+          <div class="about-col-2">
+            <h1 class="subtitle">About Me</h1>
+            <p>
+              I am Ameh Boniface. I am a Nigerian. I was born and raised up in Abuja, Nigeria's city capital.
+              I started my nursery education down to my secondary education program also in Abuja. I am currently a Software Engineering Student
+              of Veritas University. It will be a very good opportunity working with you. Thank you.
+            </p>
+            <div class="tab-titles">
+              <p class="tab-links active-link" onclick="openTab('skills')">
+                Skills
+              </p>
+              <p class="tab-links" onclick="openTab('education')">Education</p>
+              <p class="tab-links" onclick="openTab('experience')">
+                Experience
+              </p>
+            </div>
+            <div class="tab-contents active-tab" id="skills">
+              <ul>
+                <li><span>UI/UX</span><br />Web/App Interfaces</li>
+                <li><span>Web Development</span><br />Web App Development</li>
+                <li>
+                  <span>App development</span><br />Building Android/iOS
+                  applications
+                </li>
+              </ul>
+            </div>
+            <div class="tab-contents" id="education">
+              <ul>
+                <li>
+                  <span>2022-Current</span><br />Veritas University, Abuja
+                </li>
+                <li>
+                  <span>2016-2022</span><br />Saints Simon and Jude Seminary,
+                  Abuja
+                </li>
+                <li><span>2012-2016</span><br />Star Divine Heritage International School, Abuja</li>
+              </ul>
+            </div>
+            <div class="tab-contents" id="experience">
+              <ul>
+                <li><span>2023-Current</span><br />Immigration service</li>
+                <li>
+                  <span>2020-2023</span><br />Technology Institute of Nigeria
+                </li>
+                <li><span>2016-2020</span><br />Team lead at Google LLC</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---services-->
+    <div id="services">
+      <div class="container">
+        <h1 class="subtitle">My Services</h1>
+        <div class="services-list">
+          <div>
+            <i class="fa-solid fa-code"></i>
+            <h2>Web Design</h2>
+            <p>
+             Do you want your own personal or business website hosted on the internet?
+            </p>
+            <a href="#">Learn more</a>
+          </div>
+          <div>
+            <i class="fa-solid fa-crop-simple"></i>
+            <h2>UI/UX design</h2>
+            <p>
+              DO you want to create your own UI/UX design?
+            </p>
+            <a href="#">Learn more</a>
+          </div>
+          <div>
+            <i class="fa-brands fa-app-store"></i>
+            <h2>App Design</h2>
+            <p>
+              Do you want to an application that is compatible with both android and iOS devices?
+            </p>
+            <a href="#">Learn more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--portfolio-->
+    <div id="portfolio">
+      <div class="container">
+        <h1 class="subtitle">My Work</h1>
+        <div class="worklist">
+          <div class="work">
+            <img src="images/p1.jpg" />
+            <div class="layer">
+              <h3>Social Media App</h3>
+              <p>
+                The app connects you to talented people around the world.
+                Download it from play store.
+              </p>
+              <a href="#"
+                ><i class="fa-solid fa-arrow-up-right-from-square"></i
+              ></a>
+            </div>
+          </div>
+          <div class="work">
+            <img src="images/p3.jpg" />
+            <div class="layer">
+              <h3>Online Shopping app</h3>
+              <p>
+                The app connects you to talented people around the world.
+                Download it from play store.
+              </p>
+              <a href="#"
+                ><i class="fa-solid fa-arrow-up-right-from-square"></i
+              ></a>
+            </div>
+          </div>
+          <div class="work">
+            <img src="images/p6.jpg" />
+            <div class="layer">
+              <h3>Music App</h3>
+              <p>
+                The app connects you to talented people around the world.
+                Download it from play store.
+              </p>
+              <a href="#"
+                ><i class="fa-solid fa-arrow-up-right-from-square"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="btn">See More</a>
+      </div>
+    </div>
+    <!--contact-------->
+    <div class="contact">
+      <div class="container">
+        <div class="row">
+          <div class="contact-left">
+            <h1 class="worklist">Contact me</h1>
+            <p>
+              <i class="fa-solid fa-paper-plane"></i>amehbonifacechristopher@gmail.com
+            </p>
+            <p><i class="fa-solid fa-phone"></i>07045096514</p>
+            <div class="social-icons">
+              <a href="https://facebook.com"
+                ><i class="fa-brands fa-square-facebook"></i></a>
+              <a href="https://instagram.com"
+                ><i class="fa-brands fa-square-instagram"></i
+              ></a>
+              <a href="http://linkedin.com"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+              <a href="http://twitter.com"
+                ><i class="fa-brands fa-square-twitter"></i
+              ></a>
+            </div>
+            <a href="cv.pdf" download class="btn btn2">Download CV</a>
+          </div>
+          <div class="contact-right">
+            <form>
+              <input type="text" name="Name" placeholder="Your Name" required />
+              <input
+                type="email"
+                name="Email"
+                placeholder="Your Email"
+                required
+              />
+              <textarea
+                name="message"
+                rows="6"
+                placeholder="Your Message"
+              ></textarea>
+              <button type="submit" class="btn btn2">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>copyright &copy AMEH. My Portfolio</p>
+      </div>  
+    <script>
+      var tablinks = document.getElementsByClassName("tab-links");
+      var tabcontents = document.getElementsByClassName("tab-contents");
+
+      function openTab(tabname) {
+        for (tablink of tablinks) {
+          tablink.classList.remove("active-link");
+        }
+        for (tabcontent of tabcontents) {
+          tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+      }
+    </script>
+    <script>
+      var sidemenu = document.getElementById("sidemenu");
+      function openMenu() {
+        sidemenu.style.right = "0";
+      }
+      function closeMenu() {
+        sidemenu.style.right = "-200px";
+      }
+    </script>
+  </body>
+</html>
