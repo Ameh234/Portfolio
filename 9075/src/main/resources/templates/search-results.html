@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout :: layout(~{::title}, ~{::div#content})">
+<head>
+    <title>Food Order Search Results</title>
+</head>
+<body>
+<div id="content">
+    <h2>Food Order Search Results</h2>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Food Name</th>
+            <th>User Name</th>
+            <th>Price</th>
+            <th>Order Time</th>
+            <th>Comments</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="order : ${foodOrders}">
+            <td th:text="${order.id}"></td>
+            <td th:text="${order.foodName}"></td>
+            <td th:text="${order.userName}"></td>
+            <td th:text="${#numbers.formatDecimal(order.price, 0, 'COMMA', 2, 'POINT')}"></td>
+            <td th:text="${#temporals.format(order.orderTime, 'dd-MM-yyyy HH:mm')}"></td>
+            <td>
+                <ul th:if="${!#lists.isEmpty(order.comments)}">
+                    <li th:each="comment : ${order.comments}">
+                        <span th:text="${order.userName}"></span>: <span th:text="${comment.statement}"></span>
+                    </li>
+                </ul>
+                <span th:if="${#lists.isEmpty(order.comments)}">No comments yet.</span>
+            </td>
+            <td>
+                <a th:href="@{/foodorders/{orderId}/comment(orderId=${order.id})}">Add Comment</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div th:if="${#lists.isEmpty(foodOrders)}">
+        <p>No food orders found matching your search.</p>
+    </div>
+    <br/>
+    <a th:href="@{/foodorders/list}">Back to All Food Orders</a>
+</div>
+</body>
+</html>

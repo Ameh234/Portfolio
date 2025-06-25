@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout :: layout(~{::title}, ~{::div#content})">
+<head>
+    <title>Food Order List</title>
+    <style>
+        .error { color: red; }
+    </style>
+</head>
+<body>
+<div id="content">
+    <h2>Food Orders</h2>
+
+    <form th:action="@{/foodorders/search}" method="get">
+        <input type="text" name="keyword" placeholder="Search by Food Name"/>
+        <button type="submit">Search</button>
+    </form>
+    <br/>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Food Name</th>
+            <th>User Name</th>
+            <th>Price</th>
+            <th>Order Time</th>
+            <th>Comments</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="order : ${foodOrderPage.content}">
+            <td th:text="${order.id}"></td>
+            <td th:text="${order.foodName}"></td>
+            <td th:text="${order.userName}"></td>
+            <td th:text="${#numbers.formatDecimal(order.price, 0, 'COMMA', 2, 'POINT')}"></td>
+            <td th:text="${#temporals.format(order.orderTime, 'dd-MM-yyyy HH:mm')}"></td>
+            <td>
+                <ul th:if="${!#lists.isEmpty(order.comments)}">
+                    <li th:each="comment : ${order.comments}">
+                        <span th:text="${order.userName}"></span>: <span th:text="${comment.statement}"></span>
+                    </li>
+                </ul>
+                <span th:if="${#lists.isEmpty(order.comments)}">No comments yet.</span>
+            </td>
+            <td>
+                <a th:href="@{/foodorders/{orderId}/comment(orderId=${order.id})}">Add Comment</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div th:if="${foodOrderPage.totalPages > 0}" class="pagination">
+        <a th:if="${foodOrderPage.hasPrevious()}"
+           th:href="@{/foodorders/list(page=${foodOrderPage.number - 1}, size=${foodOrderPage.size})}">Previous</a>
+        <span th:each="pageNumber : ${pageNumbers}">
+                <a th:href="@{/foodorders/list(page=${pageNumber - 1}, size=${foodOrderPage.size})}"
+                   th:text="${pageNumber}"
+                   th:class="${pageNumber == foodOrderPage.number + 1} ? 'active'"></a>
+            </span>
+        <a th:if="${foodOrderPage.hasNext()}"
+           th:href="@{/foodorders/list(page=${foodOrderPage.number + 1}, size=${foodOrderPage.size})}">Next</a>
+    </div>
+</div>
+</body>
+</html>

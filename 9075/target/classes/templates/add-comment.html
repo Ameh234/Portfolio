@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout :: layout(~{::title}, ~{::div#content})">
+<head>
+    <title>Add Comment to Order</title>
+</head>
+<body>
+<div id="content">
+    <h2>Add Comment for Order #<span th:text="${foodOrder.id}"></span> - <span th:text="${foodOrder.foodName}"></span></h2>
+    <form th:action="@{/foodorders/{orderId}/comment(orderId=${foodOrder.id})}" th:object="${comment}" method="post">
+        <div>
+            <label for="statement">Your Comment:</label>
+            <textarea id="statement" th:field="*{statement}" rows="5" cols="50"></textarea>
+            <span th:if="${#fields.hasErrors('statement')}" th:errors="*{statement}" class="error"></span>
+        </div>
+        <div>
+            <button type="submit">Submit Comment</button>
+        </div>
+    </form>
+    <a th:href="@{/foodorders/list}">Back to Food Orders</a>
+</div>
+</body>
+</html>

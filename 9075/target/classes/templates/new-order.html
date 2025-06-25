@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout :: layout(~{::title}, ~{::div#content})">
+<head>
+    <title>Place New Food Order</title>
+</head>
+<body>
+<div id="content">
+    <h2>Place New Food Order</h2>
+    <form th:action="@{/foodorders/new}" th:object="${foodOrder}" method="post">
+        <div>
+            <label for="foodName">Food Name:</label>
+            <input type="text" id="foodName" th:field="*{foodName}" />
+            <span th:if="${#fields.hasErrors('foodName')}" th:errors="*{foodName}" class="error"></span>
+        </div>
+        <div>
+            <label for="userName">User Name:</label>
+            <input type="text" id="userName" th:field="*{userName}" />
+            <span th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}" class="error"></span>
+        </div>
+        <div>
+            <label for="price">Price:</label>
+            <input type="number" id="price" th:field="*{price}" step="0.01" />
+            <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="error"></span>
+        </div>
+        <div>
+            <button type="submit">Place Order</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

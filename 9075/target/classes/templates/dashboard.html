@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout :: layout(~{::title}, ~{::div#content})">
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+<div id="content">
+    <h2>Admin Dashboard</h2>
+    <p>Welcome to the Veritas Online Restaurant Admin Dashboard!</p>
+    <ul>
+        <li><a th:href="@{/foodorders/new}">Place New Food Order</a></li>
+        <li><a th:href="@{/foodorders/list}">View All Food Orders</a></li>
+    </ul>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout"/>
+    </form>
+</div>
+</body>
+</html>
